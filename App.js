@@ -12,6 +12,7 @@ import TrackListScreen from "./src/screens/TrackListScreen";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
 import ResolveAuthScreen from "./src/screens/ResolveAuthScreen";
 import { Provider as LocationProvider } from "./src/context/LocationContext";
+import { Provider as TrackProvider } from "./src/context/TrackContext";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -37,22 +38,24 @@ function BottomTab() {
 
 const App = () => {
   return (
-    <LocationProvider>
-      <AuthProvider>
-        <NavigationContainer ref={navigationRef}>
-          <Stack.Navigator
-            screenOptions={{
-              headerShown: false,
-            }}
-          >
-            <Stack.Screen name="ResolveAuth" component={ResolveAuthScreen} />
-            <Stack.Screen name="Signup" component={SignupScreen} />
-            <Stack.Screen name="Signin" component={SigninScreen} />
-            <Stack.Screen name="BottomTab" component={BottomTab} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </AuthProvider>
-    </LocationProvider>
+    <TrackProvider>
+      <LocationProvider>
+        <AuthProvider>
+          <NavigationContainer ref={navigationRef}>
+            <Stack.Navigator
+              screenOptions={{
+                headerShown: false,
+              }}
+            >
+              <Stack.Screen name="ResolveAuth" component={ResolveAuthScreen} />
+              <Stack.Screen name="Signup" component={SignupScreen} />
+              <Stack.Screen name="Signin" component={SigninScreen} />
+              <Stack.Screen name="BottomTab" component={BottomTab} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </AuthProvider>
+      </LocationProvider>
+    </TrackProvider>
   );
 };
 
