@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StyleSheet, Text, FlatList, TouchableOpacity } from "react-native";
+import { StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import { ListItem } from "react-native-elements";
 import { Context as TrackContext } from "../context/TrackContext";
 
